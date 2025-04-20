@@ -47,7 +47,7 @@ class Lexer:
                 yield Token(TokenType.R_PAREN)
 
             else:
-                raise Exception(f"Invalid Character '{self.current_char}'")
+                raise Exception(f"Invalid Character: '{self.current_char}'")
 
     def generate_number(self):
         decimal_point_count = 0
@@ -69,9 +69,4 @@ class Lexer:
             number_str += '0'
         
         return Token(TokenType.NUMBER, float(number_str))
-
-        
-        
-
-
 
