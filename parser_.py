@@ -43,7 +43,7 @@ class Parser:
     def term(self):
         result = self.factor()
 
-        while self.current_token != None and self.current_token.type in (TokenType.MULTIPLICATION, TokenType.DIVISION):
+        while self.current_token != None and self.current_token.type in (TokenType.MULTIPLICATION, TokenType.DIVISION, TokenType.POWER):
             if self.current_token.type == TokenType.MULTIPLICATION:
                 self.advance()
                 result = MultiplyNode(result, self.factor())
@@ -51,6 +51,10 @@ class Parser:
             elif self.current_token.type == TokenType.DIVISION:
                 self.advance()
                 result = DivideNode(result, self.factor())
+
+            elif self.current_token.type == TokenType.POWER:
+                self.advance()
+                result = PowerNode(result, self.factor())
 
         return result
 
