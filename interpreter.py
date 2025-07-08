@@ -1,5 +1,6 @@
 from nodes import *
 from values import Number
+import math
 
 class Interpreter:
     def visit(self, node):
@@ -33,4 +34,7 @@ class Interpreter:
     
     def visit_PowerNode(self, node):
         return Number(self.visit(node.node_a).value ** self.visit(node.node_b).value)
+
+    def visit_Sq_RtNode(self, node):
+        return Number(math.sqrt(self.visit(node.node_b).value))
 

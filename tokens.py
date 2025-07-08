@@ -10,6 +10,7 @@ class TokenType(Enum):
     L_PAREN         = 5
     R_PAREN         = 6
     POWER           = 7
+    SQ_RT           = 8   
 
 @dataclass
 class Token:

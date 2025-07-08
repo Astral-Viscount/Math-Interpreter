@@ -50,6 +50,10 @@ class Lexer:
                 self.advance()
                 yield Token(TokenType.POWER)
 
+            elif self.current_char == '√':
+                self.advance()
+                yield Token(TokenType.SQ_RT)
+
             else:
                 raise Exception(f"Invalid Character: '{self.current_char}'")
 
